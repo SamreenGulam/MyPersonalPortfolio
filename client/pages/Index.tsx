@@ -109,7 +109,7 @@ export default function Index() {
       keywords: ["Role-based access", "Educational tech", "API documentation"],
       links: {
         github: "https://github.com/SamreenGulam/university-service",
-        swagger: "#"
+        swagger: "https://your-swagger-docs.herokuapp.com"
       }
     },
     {
@@ -119,8 +119,8 @@ export default function Index() {
       impact: "Clean architecture implementation",
       keywords: ["Layered architecture", "REST APIs", "JPA"],
       links: {
-        github: "#",
-        docs: "#"
+        github: "https://github.com/Samreen-Gulam/Job-Application-Tracker",
+        docs: "https://your-api-docs.com"
       }
     }
   ];
@@ -235,13 +235,16 @@ CERTIFICATIONS
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </Button>
-            <Button variant="outline" size="lg" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 transition-all duration-300"
-            onClick={() => window.open('www.linkedin.com/in/samreen-gulam', '_blank')}>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 transition-all duration-300"
+              onClick={() => window.open('https://www.linkedin.com/in/Samreen-Gulam', '_blank')}
+            >
               <Linkedin className="mr-2 h-5 w-5" />
               LinkedIn
             </Button>
-            <Button variant="outline" size="lg" className="border-2 border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-8 py-3 transition-all duration-300"
-            onClick={() => window.open('https://github.com/SamreenGulam', '_blank')}>
+            <Button variant="outline" size="lg" className="border-2 border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-8 py-3 transition-all duration-300">
               <Github className="mr-2 h-5 w-5" />
               GitHub
             </Button>
@@ -426,25 +429,45 @@ CERTIFICATIONS
                   
                   <div className="flex gap-3 pt-4">
                     {project.links.github && (
-                      <Button variant="outline" size="sm" className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2"
+                        onClick={() => window.open(project.links.github, '_blank')}
+                      >
                         <Github className="h-4 w-4" />
                         GitHub
                       </Button>
                     )}
                     {project.links.demo && (
-                      <Button variant="outline" size="sm" className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2"
+                        onClick={() => window.open(project.links.demo, '_blank')}
+                      >
                         <ExternalLink className="h-4 w-4" />
                         Live Demo
                       </Button>
                     )}
                     {project.links.swagger && (
-                      <Button variant="outline" size="sm" className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2"
+                        onClick={() => window.open(project.links.swagger, '_blank')}
+                      >
                         <FileText className="h-4 w-4" />
                         Swagger
                       </Button>
                     )}
                     {project.links.docs && (
-                      <Button variant="outline" size="sm" className="flex items-center gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2"
+                        onClick={() => window.open(project.links.docs, '_blank')}
+                      >
                         <FileText className="h-4 w-4" />
                         Docs
                       </Button>
