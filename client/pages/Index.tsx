@@ -87,8 +87,8 @@ export default function Index() {
       impact: "Increased user engagement by 25%",
       keywords: ["AI integration", "scalable backend", "MongoDB optimization"],
       links: {
-        github: "#",
-        demo: "#"
+        github: "https://github.com/SamreenGulam/GlobalPrep",
+        demo: "https://your-demo-link.vercel.app"
       }
     },
     {
@@ -98,7 +98,7 @@ export default function Index() {
       impact: "35% improvement in performance via query optimization",
       keywords: ["High-performance", "Financial systems", "Query optimization"],
       links: {
-        github: "#"
+        github: "https://github.com/SamreenGulam/banking-application"
       }
     },
     {
@@ -108,7 +108,7 @@ export default function Index() {
       impact: "Streamlined administrative processes",
       keywords: ["Role-based access", "Educational tech", "API documentation"],
       links: {
-        github: "#",
+        github: "https://github.com/SamreenGulam/university-service",
         swagger: "#"
       }
     },
@@ -175,15 +175,73 @@ export default function Index() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 animate-glow">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 animate-glow"
+              onClick={() => {
+                // Option 1: Download PDF from public folder (add your PDF there)
+                const link = document.createElement('a');
+                link.href = '/Samreen_Gulam_Resume.pdf';
+                link.download = 'Samreen_Gulam_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // Option 2: Fallback - generate text resume if PDF not found
+                link.onerror = () => {
+                  const resumeContent = `SAMREEN GULAM
+Backend-Focused Full Stack Engineer
+Email: samreengulam12@gmail.com | LinkedIn: Samreen-Gulam | Location: Hyderabad, Telangana
+
+EDUCATION
+B.Tech, Computer Science Engineering - GITAM University (CGPA: 7.53)
+Intermediate MPC - SR Junior College (86.1%)
+CBSE - Greenwood High School (CGPA: 7.5)
+
+EXPERIENCE
+Java Developer Intern - EIDIKO System Integrators (May 2024 – July 2024)
+• Developed e-commerce backend in Spring Boot
+• Created REST APIs for CRUD-based systems
+• Agile practices, sprint reviews, and real-time debugging
+
+TECHNICAL SKILLS
+Backend: Java, Spring Boot, Hibernate, JDBC
+Frontend: React, HTML5, CSS3, JavaScript
+Database: MySQL, MongoDB
+Tools: Postman, Git, IntelliJ, VS Code, Docker (basic), CI/CD (basic)
+
+KEY PROJECTS
+1. GlobalPrep Educational Platform - React, Express.js, MongoDB, OpenAI API
+2. Banking System - Java, Spring Boot, MySQL (35% performance improvement)
+3. Student Info Tracker - Spring Boot, MongoDB, Swagger UI
+4. Job Application Tracker - Spring Boot, MySQL, JPA, Postman
+
+CERTIFICATIONS
+• Core Java Certification
+• Data Structures Certification`;
+
+                  const blob = new Blob([resumeContent], { type: 'text/plain' });
+                  const url = window.URL.createObjectURL(blob);
+                  const fallbackLink = document.createElement('a');
+                  fallbackLink.href = url;
+                  fallbackLink.download = 'Samreen_Gulam_Resume.txt';
+                  document.body.appendChild(fallbackLink);
+                  fallbackLink.click();
+                  document.body.removeChild(fallbackLink);
+                  window.URL.revokeObjectURL(url);
+                };
+              }}
+            >
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </Button>
-            <Button variant="outline" size="lg" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 transition-all duration-300">
+            <Button variant="outline" size="lg" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 transition-all duration-300"
+            onClick={() => window.open('www.linkedin.com/in/samreen-gulam', '_blank')}>
               <Linkedin className="mr-2 h-5 w-5" />
               LinkedIn
             </Button>
-            <Button variant="outline" size="lg" className="border-2 border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-8 py-3 transition-all duration-300">
+            <Button variant="outline" size="lg" className="border-2 border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-8 py-3 transition-all duration-300"
+            onClick={() => window.open('https://github.com/SamreenGulam', '_blank')}>
               <Github className="mr-2 h-5 w-5" />
               GitHub
             </Button>
